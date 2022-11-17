@@ -62,8 +62,19 @@
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 90%;
+}
+
 .characterBuilderForm {
-  min-width: 65%;  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 90%; 
   background-color: rgb(204, 204, 204);
   border-radius: 5px;
   padding: 1rem;
@@ -80,33 +91,72 @@
 .characterBuilderForm h2 {
   text-align: center;
 }
-
 .characterBuilderInputZone {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  width: 80%;
+  background-color: azure;
+  padding: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-radius: 2px;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
 }
 .userInput {
   margin-inline: 2.5rem;
+  margin: .2rem;
 }
 
-.grid {
+.selector {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
-  max-width: 800px;
+  width: 80%;
+  justify-content: center;
+  background-color: azure;
+  margin: 2rem;
+  padding-bottom: 1rem;
+  border-radius:2px;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+.row {
+  display:flex;
+  justify-content: center;
+  min-width: 100%;
+}
+
+.buttonRow {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  justify-content: center;
+}
+.characterBuilderButton {
+  background-color: azure;
+  padding: 1rem;
+  padding-inline: 2rem;
+}
+.characterBuilderButton:hover,
+.characterBuilderButton:active,
+.characterBuilderButton:focus {
+  border-color:#0070f3;
 }
 
 .characterBuilderCard {
+  display: flex;
+  flex-direction: column;
   background-color: whitesmoke;
   margin: 1rem;
   text-align: left;
   color: inherit;
   text-decoration: none;
   border: 1px solid grey;
-  border-radius: 10px;
+  border-radius: 2px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 250px;
+  max-width: 15rem;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
 }
 .characterBuilderCard h3 {
   text-align: center;
@@ -116,6 +166,7 @@
 }
 .characterBuilderCardInfo {
   padding-inline: 1.5rem;
+  min-height: 10rem;
 }
 .characterBuilderCard button {
   width: 100%;
@@ -128,23 +179,20 @@
 .characterBuilderCard:hover,
 .characterBuilderCard:focus,
 .characterBuilderCard:active {
-  border-color:#0070f3
+  border-color:#0070f3;
 }
 .cardExpandDetails {
   width: 100%;
   display: flex;
   align-content: center;
   justify-content: center;
-  background-color: rgb(173, 170, 159);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  background-color: rgb(158, 224, 255);
 }
 .cardExpandDetails:hover,
 .cardExpandDetails:focus,
 .cardExpandDetails:active {
   background-color: #0070f3;
 }
-
 
 .card {
   margin: 1rem;

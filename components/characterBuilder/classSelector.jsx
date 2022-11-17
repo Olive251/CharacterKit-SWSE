@@ -8,16 +8,40 @@ const ClassSelector = () => {
     //for each build a class card
 
     return(
-        <div>
-            <h2>Select Class</h2>
+        
+        <div className={styles.selector}>  
 
-            <div className={styles.grid}>
-                <ClassSelectorCard
-                    className = {"Soldier"}
-                    classDescription={"The Soldier combines discipline with martial skills to become the best warriors in the galaxy"}
-                />
-            </div>
-        </div>        
+            <div className={styles.row}>
+                <h2>Select Your Starting Class</h2>
+            </div>   
+
+            <ClassSelectorCard
+                className = {"Jedi"}
+                classDescription={"The Jedi were long considered the guardians of peace and justice in the galaxy. They learn to wield lightsabers and master The Force."}
+            />
+
+            <ClassSelectorCard
+                className = {"Noble"}
+                classDescription={"The Noble inspires confidence as a natural born leader, shrewd bargainer and negotiator."}
+            />
+
+            <ClassSelectorCard
+                className = {"Scoundrel"}
+                classDescription={"The Scoundrel is a rogue who succeeds with skill and stealth instead of brute force."}
+            />
+
+            <ClassSelectorCard
+                className = {"Scout"}
+                classDescription={"The Scout is a cunning, skillful explorer trained to perform operations in the wild reaches of the galaxy."}
+            />
+
+            <ClassSelectorCard
+                className = {"Soldier"}
+                classDescription={"A warrior with exceptional combat capabilities and unequaled skill with weaponry."}
+            />
+            
+        </div>
+                
     )
 }
 

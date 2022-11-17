@@ -22,7 +22,7 @@ const BuilderStep1 = () => {
                 <h1>Character Builder</h1>
 
                 <form className = {styles.characterBuilderForm} action="" method="post">
-                    <div className={styles.characterBuilderInputZone}>
+                    <div className={[styles.characterBuilderInputZone]}>
                         
                         <UserInput label="Character name"/>
                         <UserInput label="Gender"/>
@@ -32,7 +32,16 @@ const BuilderStep1 = () => {
                     <br/>
                     <br/>
                     <ClassSelector/>
-                </form>
+                    
+                <div className={styles.buttonRow}>
+                    <input 
+                        type="submit" 
+                        value="Continue" 
+                        className={styles.characterBuilderButton} 
+                        onClick={console.log("continue")}/>  
+                </div>
+
+                </form>                
             </main>
         </div>
     )
