@@ -9,11 +9,6 @@ const defaultProps = {
 
 const MainMenuCard = ({title, text, _href}) => {
 
-    if (_href === null)
-    {
-        _href = defaultProps._href;
-    }
-
     return(
         <Link href= {_href}>
         <div className = {styles.card}>

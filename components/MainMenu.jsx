@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css';
-import MainMenuCard from './MainMenuCard.js';
+import MainMenuCard from './MainMenuCard.jsx';
 
 const MainMenu = () => {
 
