@@ -1,14 +1,14 @@
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
 
-
-
 const HitPointsCard = ({hp}) => {
 
     const [currentHP, setCurrentHP] = useState(hp.current);
-    useEffect( ()=> {
-        
-    });
+    const [healthMod, setHealthMod] = useState(0);
+
+    const handleChange = (e) => {
+        setHealthMod(e.target.value)
+    }
 
     return (
         <div className={styles.hpCard}>
@@ -18,15 +18,17 @@ const HitPointsCard = ({hp}) => {
             </div>            
             <br/>
 
-            <button onClick={(e) => {
-                setCurrentHP(currentHP - 1);
+            <button onClick={() => {
+                setCurrentHP(currentHP - healthMod);
             }}>Damage</button>
 
-            <input type="text" id='modifyCurrentHp' name="modify current HP"/>
+            <form action="">
+                <input type="text" id='modifyCurrentHp' name="modify current HP" value={healthMod} onChange={handleChange}/>
+            </form>
 
 
-            <button onClick={(e) => {
-                setCurrentHP(currentHP + 1);
+            <button onClick={() => {
+                setCurrentHP(parseInt(currentHP) + parseInt(healthMod));
             }}>Heal</button>
             
         </div>
