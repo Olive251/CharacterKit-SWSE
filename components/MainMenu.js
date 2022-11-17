@@ -8,13 +8,13 @@ const MainMenu = () => {
             <MainMenuCard
                 title = "About the Project"
                 text = "Learn about the past, present, and future of the SWSE Toolkit"
-                _href = "/"
+                _href = "/about"
             />
 
             <MainMenuCard
                 title = "Character Builder"
                 text = "Build your own SWSE character using the Character Kit Builder!"
-                _href = '/characterBuilder1'
+                _href = '/characterBuilder/builder-step1'
             />
         </div>
     )
