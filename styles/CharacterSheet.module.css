@@ -120,10 +120,16 @@
 
 .abilitiesCard {
     display: flex;
+    flex-direction: column;
     background-color: rgb(165, 193, 212);
     border-radius: 2px;
     padding: .5rem;
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+.abilitiesCard h3 {
+    text-align: center;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
 }
 .abilitiesCard tbody {
     text-align: center;
