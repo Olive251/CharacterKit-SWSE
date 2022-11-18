@@ -12,13 +12,15 @@ const Sheet = ({character}) => {
 
     return (
         <div className={styles.sheet}>
+            <AbilitiesCard abilities={character.abilities}/>
+            
             <BasicInfo basicInfo={basicInfo}/>
 
             <HeroClassLvl heroClass={character.heroClass}/>
 
             <HP hp={character.hp}/>
 
-            <AbilitiesCard abilities={character.abilities}/>
+            
         </div>
     )
 }
