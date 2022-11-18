@@ -3,10 +3,12 @@ import {useState, useEffect} from 'react';
 import BasicInfo from './BasicInfo';
 import HeroClassLvl from './heroClassLvl';
 import HP from './hp';
+import AbilitiesCard from './AbilitiesCard';
 
 const Sheet = ({character}) => {
     
     const basicInfo = character.basicInfo;
+    const abilities = character.abilities;
 
     return (
         <div className={styles.sheet}>
@@ -15,6 +17,8 @@ const Sheet = ({character}) => {
             <HeroClassLvl heroClass={character.heroClass}/>
 
             <HP hp={character.hp}/>
+
+            <AbilitiesCard abilities={character.abilities}/>
         </div>
     )
 }

@@ -10,15 +10,27 @@ const HitPointsCard = ({hp}) => {
         setHealthMod(e.target.value)
     }
 
+    //TODO change current HP display into a table
     return (
         <div className={styles.hpCard}>
 
             <h4>Hit Points</h4>
             
             <div className={styles.currentHPDisplay}>
-                <p>CURRENT</p><br/>
-                <h3>{currentHP}</h3><br/><h3>/</h3><br/><h3>{hp.maxHP}</h3>
-                <br/><p>MAX</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Current</th>
+                            <th>Max</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{currentHP}</td>
+                            <td>{hp.maxHP}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>            
             <br/>
 

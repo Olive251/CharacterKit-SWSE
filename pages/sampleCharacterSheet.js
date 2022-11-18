@@ -23,6 +23,14 @@ const CharacterSheet = () => {
             current: 89,
             condition: 0,
         },
+        abilities: {
+            strength: 14,
+            dexterity: 16,
+            constitution: 15,
+            intelligence: 10,
+            wisdom: 16,
+            charisma: 18,
+        }
     });
 
     return(

@@ -3,6 +3,15 @@
     display: flex;
     justify-content: center;
 }
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: .1rem;
+}
+
 .sheet {
     display: flex;
     flex-wrap: wrap;
@@ -36,10 +45,6 @@
 }
 .section table th {
     text-align: center;
-    
-}
-.section table td {
-    text-align: right;
 }
 
 .hpCard {
@@ -51,38 +56,84 @@
     justify-content: center;
     background-color: rgb(165, 193, 212);
     border-radius: 2px;
-    max-width: fit-content;
+    max-width: 25%;
+    margin-inline-end: 2rem;
 }
 .hpCard h3{
     margin-inline-end: .4rem;
     text-align: center;
-    
 }
 .hpCard h4 {
     background-color: azure;    
     border-radius: 5px;
-    padding-inline: .35rem;
+    padding: .1rem;
     margin: 0;
 }
 .hpCard input {
     margin-inline: .4rem;
     width: 4rem;
 }
+
 .currentHPDisplay {
     width: 90%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.currentHPDisplay table tbody {
+    text-align: center;
+}
+.currentHPDisplay table thead{
+    margin-top: .1rem;
+    font-size: x-small;
+}
+.currentHPDisplay .row p {
+    margin-bottom: .1rem;
 }
 .conditionTracker{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: .5rem;
+    margin-inline: .2rem;
+    padding: .3rem;
+    background-color:rgb(94, 121, 138);
+    border-radius: 2px;
 }
 .conditionCard{
     display:flex;
     flex-direction: column;
+    justify-content: space-between;
     background-color: rgb(165, 193, 212);
     border-radius: 2px;
+    padding: .5rem;
+    padding-inline: .3rem;
+    margin-inline: .2rem;
+    min-width:4rem;
+    text-align: center;
+}
+.conditionCard button {
+    min-height: 1.2rem;
+    min-width: 2rem;
+}
+
+.abilitiesCard {
+    display: flex;
+    background-color: rgb(165, 193, 212);
+    border-radius: 2px;
+    padding: .5rem;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+.abilitiesCard tbody {
+    text-align: center;
+}
+.abilitiesCard thead {
+    font-size: x-small;
+}
+
+.boldCell {
+    padding-inline: .7rem;
+    border-radius: 2px;
+    background-color: azure;
 }
