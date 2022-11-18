@@ -61,7 +61,7 @@ const AbilitiesCard = (abilities) => {
     }, [])
 
     return (
-        <div className={styles.longCard}>
+        <div className={styles.longCard} id={styles.abilitiesCard}>
             <h3>Abilities</h3>
             <table>
                 <thead>

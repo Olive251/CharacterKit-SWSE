@@ -6,10 +6,6 @@ import dbConnect from '../lib/dbConnect';
 import {useState, useEffect} from 'react';
 
 export default function Home() {
-  
-  useEffect( () => {
-    //dbConnect();
-  }, [])
 
   return (
     <div className={styles.container}>
