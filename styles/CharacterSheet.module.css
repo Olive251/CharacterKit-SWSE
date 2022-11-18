@@ -41,10 +41,22 @@
     text-align: center;
 }
 .section table {
-    text-align: left;
+    text-align: center;
+    background-color:rgb(165, 193, 212);
+    padding: .75rem;
+    padding-inline: 1rem;
+    border-radius: 5px;
+    /* border: 1px solid; */
+    /* border-collapse: collapse; */
+    
 }
 .section table th {
     text-align: center;
+    border-bottom: 2px solid;
+    padding-inline: .2rem;
+}
+.section table td {
+    padding-inline: .2rem;
 }
 
 .hpCard {
@@ -63,8 +75,7 @@
     margin-inline-end: .4rem;
     text-align: center;
 }
-.hpCard h4 {
-    background-color: azure;    
+.hpCard h4 {    
     border-radius: 5px;
     padding: .1rem;
     margin: 0;
@@ -118,23 +129,23 @@
     min-width: 2rem;
 }
 
-.abilitiesCard {
+.longCard {
     display: flex;
     flex-direction: column;
-    background-color: rgb(165, 193, 212);
+    background-color:rgb(165, 193, 212);
     border-radius: 2px;
     padding: .5rem;
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
 }
-.abilitiesCard h3 {
+.longCard h3 {
     text-align: center;
     margin-top: .2rem;
     margin-bottom: .2rem;
 }
-.abilitiesCard tbody {
+.longCard tbody {
     text-align: center;
 }
-.abilitiesCard thead {
+.longCard thead {
     font-size: x-small;
 }
 

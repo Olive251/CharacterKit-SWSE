@@ -1,9 +1,16 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import MainMenu from '../components/MainMenu'
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+import MainMenu from '../components/MainMenu';
+import dbConnect from '../lib/dbConnect';
+import {useState, useEffect} from 'react';
 
 export default function Home() {
+  
+  useEffect( () => {
+    //dbConnect();
+  }, [])
+
   return (
     <div className={styles.container}>
       <Head>
