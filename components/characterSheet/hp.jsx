@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react';
 import {atom, useAtom, Provider} from "jotai";
 
 const ConditionTracker = ({condition}) => {    
-
     return(
         <div className={styles.conditionTracker}>
             
@@ -91,16 +90,16 @@ const HitPointsCard = ({hp}) => {
     )
 }
 
-const HP = ({hp}) => {
+const HP = ({status}) => {
     
-    const [condition, setCondition] = useState();
-
-    useEffect(() => {setCondition(hp.condition)},[])
+    const [_status, setStatus] = useState(status)
+    
+    //useEffect(() => {setCondition(hp.condition)},[])
 
     return (
         <div className={styles.section}>
-            <HitPointsCard hp={hp}/>
-            <ConditionTracker condition={condition}/>
+            <HitPointsCard hp={_status}/>
+            <ConditionTracker condition={_status.condition}/>
         </div>
     )
 }

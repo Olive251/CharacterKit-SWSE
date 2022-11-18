@@ -1,17 +1,14 @@
 import styles from '../../styles/CharacterSheet.module.css';
-import {useState, useEffect} from 'react';
 import BasicInfo from './BasicInfo';
 import HeroClassLvl from './heroClassLvl';
 import HP from './hp';
 import AbilitiesCard from './AbilitiesCard';
+import SkillsCard from './SkillsCard';
 //import {atom, useAtom, Provider} from "jotai";
 
 const Sheet = ({character}) => {
-    console.log(character);
 
-    
     const basicInfo = character.basicInfo;
-    const abilities = character.abilities;
 
     return (
         <div className={styles.sheet}>
@@ -20,7 +17,10 @@ const Sheet = ({character}) => {
             <BasicInfo basicInfo={basicInfo}/>
             <AbilitiesCard abilities={character.abilities}/>
             <HeroClassLvl heroClass={character.heroClass}/>
-            <HP hp={character.hp}/>
+            
+            <HP status={character.status}/>
+            
+            <SkillsCard character={character}/>
 
             
         </div>
