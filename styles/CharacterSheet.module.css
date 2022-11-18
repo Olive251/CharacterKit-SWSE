@@ -17,8 +17,8 @@
     justify-content: center;
     background-color: azure;
     padding: 1rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
     border-radius: 2px;
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
     margin: 1.5rem;
@@ -43,24 +43,46 @@
 }
 
 .hpCard {
-    padding: .5rem;
+    padding-top:.5rem;
+    padding-bottom:.5rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgb(206, 252, 252);
+    background-color: rgb(165, 193, 212);
+    border-radius: 2px;
+    max-width: fit-content;
 }
-.hpCard h3 {
+.hpCard h3{
     margin-inline-end: .4rem;
     text-align: center;
+    
+}
+.hpCard h4 {
+    background-color: azure;    
+    border-radius: 5px;
+    padding-inline: .35rem;
+    margin: 0;
 }
 .hpCard input {
     margin-inline: .4rem;
     width: 4rem;
 }
 .currentHPDisplay {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+.conditionTracker{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: .5rem;
+}
+.conditionCard{
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(165, 193, 212);
+    border-radius: 2px;
 }

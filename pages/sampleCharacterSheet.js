@@ -21,7 +21,7 @@ const CharacterSheet = () => {
         hp: {
             maxHP: 89,
             current: 89,
-            conditionTrack: 0,
+            condition: 0,
         },
     });
 

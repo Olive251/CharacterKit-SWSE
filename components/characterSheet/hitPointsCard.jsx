@@ -12,9 +12,13 @@ const HitPointsCard = ({hp}) => {
 
     return (
         <div className={styles.hpCard}>
+
+            <h4>Hit Points</h4>
             
             <div className={styles.currentHPDisplay}>
-                <h3>{currentHP}/{hp.maxHP}</h3>
+                <p>CURRENT</p><br/>
+                <h3>{currentHP}</h3><br/><h3>/</h3><br/><h3>{hp.maxHP}</h3>
+                <br/><p>MAX</p>
             </div>            
             <br/>
 
