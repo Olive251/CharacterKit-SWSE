@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import MainMenu from '../components/MainMenu';
-import dbConnect from '../lib/dbConnect';
 
 export default function Home() {
 

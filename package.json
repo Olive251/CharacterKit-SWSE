@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "jotai": "^1.10.0",
     "mongoose": "^6.7.2",
     "next": "13.0.3",

@@ -13,7 +13,7 @@ const SkillsRow = ({character, skill, index}) => {
     const [skillBonus] = useState();
 
     return(
-    <tr key={index}>
+    <tr key={index+1}>
         <td className={styles.boldCell}>{skill.skillName}</td>
         <td></td>
         <td>{halfLvl}</td>
@@ -68,7 +68,7 @@ const SkillsCard = ({character}) => {
     return (
         <table className={styles.longCard}id={styles.skillCard}>
             <thead>
-                <tr>
+                <tr key={0}>
                     <th>Skill</th>
                     <th>Skill Bonus</th>
                     <th>1/2 Level</th>
