@@ -8,23 +8,31 @@ import SkillsCard from './SkillsCard';
 
 const Sheet = ({character}) => {
 
-    const basicInfo = character.basicInfo;
+    if (character != undefined)
+    {
+        return (
+            <div className={styles.sheet}>
+                
+    
+                <BasicInfo basicInfo={character.basicInfo}/>
+                <AbilitiesCard abilities={character.abilities}/>
+                <HeroClassLvl heroClass={character.heroClass}/>
+                
+                <HP status={character.status}/>
+                
+                <SkillsCard character={character}/>
+    
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <h2>PROBLEM LOADING SAMPLE SET</h2>
+            </div>
+        )
+    }
 
-    return (
-        <div className={styles.sheet}>
-            
-
-            <BasicInfo basicInfo={basicInfo}/>
-            <AbilitiesCard abilities={character.abilities}/>
-            <HeroClassLvl heroClass={character.heroClass}/>
-            
-            <HP status={character.status}/>
-            
-            <SkillsCard character={character}/>
-
-            
-        </div>
-    )
+    
 }
 
 export default Sheet;
