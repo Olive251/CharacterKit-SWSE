@@ -67,7 +67,7 @@ const HitPointsCard = ({hp, hpBonus}) => {
                     <tbody>
                         <tr>
                             <td>{currentHP}</td>
-                            <td>{hp.rolled}</td>
+                            <td>{hp.rolled + hpBonus}</td>
                         </tr>
                     </tbody>
                 </table>
