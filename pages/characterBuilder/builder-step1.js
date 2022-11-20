@@ -38,7 +38,7 @@ const BuilderStep1 = () => {
                         type="submit" 
                         value="Continue" 
                         className={styles.characterBuilderButton} 
-                        onClick={console.log("continue")}/>  
+                        onClick={("continue")}/>  
                 </div>
 
                 </form>                
