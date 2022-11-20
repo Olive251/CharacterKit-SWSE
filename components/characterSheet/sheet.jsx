@@ -18,7 +18,7 @@ const Sheet = ({character}) => {
                 <AbilitiesCard abilities={character.abilities}/>
                 <HeroClassLvl heroClass={character.heroClass}/>
                 
-                <HP status={character.status}/>
+                <HP character={character}/>
                 
                 <SkillsCard character={character}/>
     

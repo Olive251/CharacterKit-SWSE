@@ -1,6 +1,6 @@
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
-import {getModifier} from '../../helpers/getModifier'
+import {getModifier} from '../../lib/helpers/getModifier'
 
 
 const AbilitiesCard = (abilities) => {

@@ -4,15 +4,11 @@ import Sheet from '../components/characterSheet/sheet';
 import {atom, useAtom, Provider} from "jotai";
 import {Suspense} from 'react';
 
-const API_URL = process.env.API_URL;
-
 const orig_sampleCharacter = atom(async(get) => {
 
     try{
         const response = await fetch('http://localhost:3000/api/sampleCharacter');
         const data = await response.json();
-
-        console.log(data);
 
         return data
 
@@ -28,8 +24,6 @@ const sampleCharacter = atom((get) => get(orig_sampleCharacter));
 const CharacterSheet = () => {
 
     const [character] = useAtom(orig_sampleCharacter);
-
-    console.log(orig_sampleCharacter);
 
     return(
         <div className={styles.container}>

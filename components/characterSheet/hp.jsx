@@ -1,6 +1,7 @@
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
 import {atom, useAtom, Provider} from "jotai";
+const {getModifier} = require('../../lib/helpers/getModifier')
 
 const ConditionTracker = ({condition}) => {    
     return(
@@ -41,7 +42,7 @@ const ConditionTracker = ({condition}) => {
     )
 }
 
-const HitPointsCard = ({hp}) => {
+const HitPointsCard = ({hp, hpBonus}) => {
 
     const [currentHP, setCurrentHP] = useState(hp.current);
     const [healthMod, setHealthMod] = useState(0);
@@ -66,7 +67,7 @@ const HitPointsCard = ({hp}) => {
                     <tbody>
                         <tr>
                             <td>{currentHP}</td>
-                            <td>{hp.maxHP}</td>
+                            <td>{hp.rolled}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -90,15 +91,14 @@ const HitPointsCard = ({hp}) => {
     )
 }
 
-const HP = ({status}) => {
+const HP = ({character}) => {
     
-    const [_status, setStatus] = useState(status)
-    
-    //useEffect(() => {setCondition(hp.condition)},[])
+    const [_status] = useState(character.status)
+    const [_hpBonus] = useState(getModifier(character.abilities.constitution) * character.heroClass[0].level);
 
     return (
         <div className={styles.section}>
-            <HitPointsCard hp={_status}/>
+            <HitPointsCard hp={_status} hpBonus={_hpBonus}/>
             <ConditionTracker condition={_status.condition}/>
         </div>
     )
