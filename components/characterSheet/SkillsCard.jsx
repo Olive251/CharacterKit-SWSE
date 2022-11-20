@@ -40,8 +40,7 @@ const SkillsBody = ({character}) => {
 
             spliceEntry = index;
 
-            skill.map(knSkill => {   
-                console.log(knSkill);             
+            skill.map(knSkill => {               
                 skillArr.splice(index, 0, knSkill);
             })
         }
