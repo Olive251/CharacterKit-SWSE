@@ -1,9 +1,25 @@
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
+import {atom, useAtom, Provider} from "jotai";
+import {Suspense} from 'react';
+import SwseDB from '../../lib/swseDB'
+
+const skillRules = atom(async(get) => {
+    try{
+        const response = await fetch('http://localhost:3000/api/skills');
+        const data = await response.json();
+
+        return data
+
+    }catch (err) {
+        console.log("Problem loading skill rules data...");
+        console.log(err);
+    }
+})
 
 const SkillsRow = ({character, skill, index}) => {
 
-    
+    const skills = useAtom(skillRules);
     const [abilityMod] = useState();
     //TODO be able to calculate total level from multiple class sources
     const [halfLvl] = useState(Math.floor(character.heroClass[0].level/2))

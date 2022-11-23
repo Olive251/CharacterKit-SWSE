@@ -23,12 +23,12 @@ const sampleCharacter = atom((get) => get(orig_sampleCharacter));
 
 const CharacterSheet = () => {
 
-    const [character] = useAtom(orig_sampleCharacter);
+    const [character] = useAtom(sampleCharacter);
 
     return(
         <div className={styles.container}>
             <Head>
-                    <title>{`Sample Character - Character Sheet`}</title>
+                    <title>{`${character.basicInfo.name} (Sample) - Character Sheet`}</title>
                     <meta name= "SWSE Character Sheet" content= "Character Sheet"/>
                     <link rel="icon" href="/favicon.ico" />
             </Head>

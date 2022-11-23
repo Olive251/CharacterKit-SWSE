@@ -24,8 +24,9 @@ class SkillSetter {
     }
 
     async setUseTheForce(){
-        let talent = {
+        let skill = {
             name: 'Use The Force',
+            ability: 'charisma',
             description: 'You draw upon The Force to help you recover from injuries, gain special insights, or perform other remarkable acts. You must have the Force Sensitivity feat to be Trained in this skill.',
             specialRules: ['Requires Force Sensitivity Feat to make Use The Force checks'],
             actions: [
@@ -62,10 +63,11 @@ class SkillSetter {
             ]
         }
 
-        if (await this.skillExists(talent.name)){
-            this._DB.updateSkill(talent);
+        if (await this.skillExists(skill.name)){
+            this._DB.updateSkill('637a8725a4f2981899a25c53', skill)
+            .then(() => {`Skill updated: ${skill}`});
         } else {
-            this._DB.addSkill(talent);
+            this._DB.addSkill(skill);
         }
     }
 }
