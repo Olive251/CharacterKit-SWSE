@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import {useState, useEffect} from 'react';
-const cc = require('../../helpers/makeCamelCase');
+const cc = require('../../lib/helpers/makeCamelCase');
 
 const UserInput = ({label}) => {
 
