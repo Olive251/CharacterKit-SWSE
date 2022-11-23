@@ -8,8 +8,7 @@ export default async function handler(req, res) {
     try {
         await db.initialize();
 
-        const { skillId } = req.query;
-        console.log(skillId);
+        const skillId = req.query.skills;
 
         await db.getSkillById(skillId).then((data) => {
         res.status(200).json(data);
