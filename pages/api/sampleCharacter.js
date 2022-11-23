@@ -1,5 +1,6 @@
-import SwseDB from '../../lib/swseDB'
-import {sampleCharacter} from '../../lib/data/sampleCharacter'
+import SwseDB from '../../lib/swseDB';
+import {sampleCharacter} from '../../lib/data/sampleCharacter';
+import mongoose from 'mongoose';
 
 let db = new SwseDB();
 const DBC = process.env.DB_CONN
@@ -14,7 +15,6 @@ export default async function handler(req, res) {
 
     try {
         await db.getCharacterById('6379a819caad5fbb2c49bb26')
-        //await db.addCharacter(sampleCharacter)
         .then((data) => {
           res.status(200).json(data);
       })
