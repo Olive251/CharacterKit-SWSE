@@ -94,7 +94,7 @@ const HitPointsCard = ({hp, hpBonus}) => {
 const HP = ({character}) => {
     
     const [_status] = useState(character.status)
-    const [_hpBonus] = useState(getModifier(character.abilities.constitution) * character.heroClass[0].level);
+    const [_hpBonus] = useState(getModifier(character.abilities.constitution.score) * character.heroClass[0].level);
 
     return (
         <div className={styles.section}>

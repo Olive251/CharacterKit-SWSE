@@ -1,8 +1,10 @@
-import SwseDB from '../../lib/swseDB';
-import {sampleCharacter} from '../../lib/data/sampleCharacter';
+const {SwseDB} = require('../../lib/swseDB')
+import CharacterHelper from '../../lib/helpers/CharacterHelper'
 import mongoose from 'mongoose';
 
+
 let db = new SwseDB();
+let characterHelper = new CharacterHelper();
 const DBC = process.env.DB_CONN
 
 
@@ -14,7 +16,8 @@ export default async function handler(req, res) {
     });
 
     try {
-        await db.getCharacterById('6379a819caad5fbb2c49bb26')
+        
+        await db.getCharacterById('637e94e7f01dd700dad586bc')
         .then((data) => {
           res.status(200).json(data);
       })

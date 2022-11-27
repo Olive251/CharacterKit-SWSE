@@ -26,28 +26,28 @@ const AbilitiesCard = (abilities) => {
     const [chaMod, setChaMod] = useState();
 
     useEffect( () => {
-        setStrength(abilities.strength);
-        let mod = getModifier(abilities.strength);
+        setStrength(abilities.strength.score);
+        let mod = getModifier(abilities.strength.score);
         setStrMod(mod);
 
-        setDex(abilities.dexterity);
-        mod = getModifier(abilities.dexterity);
+        setDex(abilities.dexterity.score);
+        mod = getModifier(abilities.dexterity.score);
         setDexMod(mod);
 
-        setCon(abilities.constitution);
-        mod = getModifier(abilities.constitution);
+        setCon(abilities.constitution.score);
+        mod = getModifier(abilities.constitution.score);
         setConMod(mod);
 
-        setInt(abilities.intelligence);
-        mod = getModifier(abilities.intelligence);
+        setInt(abilities.intelligence.score);
+        mod = getModifier(abilities.intelligence.score);
         setIntMod(mod);
 
-        setWis(abilities.wisdom);
-        mod = getModifier(abilities.wisdom);
+        setWis(abilities.wisdom.score);
+        mod = getModifier(abilities.wisdom.score);
         setWisMod(mod);
 
-        setCha(abilities.charisma);
-        mod = getModifier(abilities.charisma);
+        setCha(abilities.charisma.score);
+        mod = getModifier(abilities.charisma.score);
         setChaMod(mod);
     }, [])
 
