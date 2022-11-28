@@ -1,3 +1,7 @@
+//TODO
+//  -add functionality to condition tracker
+//      -On click should modify all bonuses on character sheet and show colored aura representing level down on the tracker
+
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
 import {atom, useAtom, useSetAtom} from "jotai";
