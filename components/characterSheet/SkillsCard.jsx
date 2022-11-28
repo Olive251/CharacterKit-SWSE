@@ -1,3 +1,9 @@
+//TODOs
+//  -Change SkillsRow component to pull training and focus from feats instead of stored skill data
+//      -blocker: feat data needs to be added
+//  -Get misc bonus from equipment bonuses
+//      -blocker: equipment data needs to be working
+
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
 import {atom, useAtom, Provider} from "jotai";
@@ -20,13 +26,8 @@ const SkillBubble = ({fill}) => {
 
 const SkillsRow = ({character, skill, index}) => {
 
-
     const [abilityMod, setAbilityMod] = useState();
-    //TODO be able to calculate total level from multiple class sources
     const [halfLvl] = useState(Math.floor(character.heroClass[0].level/2))
-    //TODO - fully set up database to continue.
-    //  Need to have skills connected to abilities
-    //  Skill training should come to feats or classes instead of integral part
     const [skillBonus, setSkillBonus] = useState();
 
     useEffect( () => {
