@@ -5,7 +5,7 @@
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
 import {atom, useAtom, useSetAtom} from "jotai";
-import {sampleCharacter, setCondition} from '../../lib/store'
+import {sampleCharacter} from '../../lib/store'
 const {getModifier} = require('../../lib/helpers/getModifier')
 
 
