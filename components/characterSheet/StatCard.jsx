@@ -1,9 +1,13 @@
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
-import {atom, useAtom, Provider} from "jotai";
+import {atom, useAtom, useSetAtom} from "jotai";
+import {sampleCharacter, setCondition} from '../../lib/store'
 const {getModifier} = require('../../lib/helpers/getModifier')
 
+
 const ConditionTracker = ({condition}) => {    
+
+
     return(
         <div className={styles.conditionTracker}>
             
@@ -14,7 +18,11 @@ const ConditionTracker = ({condition}) => {
             
             <div className={styles.conditionCard}>
                 <h3>-1</h3>
-                <button onClick={()=> { console.log("set condition: -1")}}> </button>
+                <button onClick={()=> {
+                    console.log("set condition: -1");
+                    console.log(`Character condition is ${characterAtom[0].status.condition}`)
+                }}> 
+                </button>
             </div>
 
             <div className={styles.conditionCard}>
@@ -91,7 +99,7 @@ const HitPointsCard = ({hp, hpBonus}) => {
     )
 }
 
-const HP = ({character}) => {
+const StatCard = ({character}) => {
     
     const [_status] = useState(character.status)
     const [_hpBonus] = useState(getModifier(character.abilities.constitution.score) * character.heroClass[0].level);
@@ -104,4 +112,4 @@ const HP = ({character}) => {
     )
 }
 
-export default HP;
+export default StatCard;

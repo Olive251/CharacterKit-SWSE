@@ -1,41 +1,62 @@
+//TODOs
+//  -Change SkillsRow component to pull training and focus from feats instead of stored skill data
+//      -blocker: feat data needs to be added
+//  -Get misc bonus from equipment bonuses
+//      -blocker: equipment data needs to be working
+
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
 import {atom, useAtom, Provider} from "jotai";
-import {Suspense} from 'react';
-import SwseDB from '../../lib/swseDB'
+import { getModifier } from '../../lib/helpers/getModifier';
+
+const SkillBubble = ({fill}) => {
+    console.log(fill)
+    const [style, setStyle] = useState()
+
+    useEffect(() => {
+        if (fill === true) setStyle(styles.skillCardBubbleFilled);
+        else setStyle(styles.skillCardBubble);
+    }, [])
+
+    return (
+        <td className={`${style}`}>       </td>
+    )
+}
+
 
 const SkillsRow = ({character, skill, index}) => {
 
-    const skillRules = atom(async(get) => {
-        try {
-            const response = await fetch(`http://localhost:3000/api/skills/${skill.skillRules}`);
-            const data = await response.json();
-            return data
-        }
-        catch (err) {
-            console.log("Problem loading skill rules data...");
-            console.log(err);
-        }
-    })
-
-
-    const [abilityMod] = useState();
-    //TODO be able to calculate total level from multiple class sources
+    const [abilityMod, setAbilityMod] = useState();
     const [halfLvl] = useState(Math.floor(character.heroClass[0].level/2))
-    //TODO - fully set up database to continue.
-    //  Need to have skills connected to abilities
-    //  Skill training should come to feats or classes instead of integral part
-    const [skillBonus] = useState();
+    const [skillBonus, setSkillBonus] = useState();
+
+    useEffect( () => {
+        var bonus = 0;
+        if (skill.trained) bonus += 5;
+        if (skill.skillFocus) bonus += 5;
+        bonus += halfLvl;
+
+        const abilities = Object.entries(character.abilities);
+        abilities.forEach(([key, value]) => {
+            if (value.abilityID == skill.skillAbility){
+                setAbilityMod( getModifier(value.score));
+            }
+        })
+
+        bonus += abilityMod;
+
+        setSkillBonus(bonus);
+    }, [])
 
     return(
     <tr key={index+1}>
         <td className={styles.boldCell}>{skill.skillName}</td>
-        <td></td>
+        <td className={styles.skillBonusCell}>{skillBonus}</td>
         <td>{halfLvl}</td>
+        <td>{abilityMod}</td>
+        <SkillBubble fill={skill.trained}/>
+        <SkillBubble fill={skill.skillFocus}/>
         <td></td>
-        <td className={styles.skillCardBubble}>       </td>
-        <td className={styles.skillCardBubble}>       </td>
-        <td className={styles.skillCardBubble}>       </td>
     </tr>
     )
 }
@@ -66,12 +87,14 @@ const SkillsBody = ({character}) => {
     const [_skill] = useState([...new Set(skillArr)]);
     
     return (
+        <>
         <tbody>
             {_skill.map((skill, index) => {
                 if (skill.skillName)
                     return(<SkillsRow character={character} skill={skill} index={index}/>)
             })}
         </tbody>
+        </>
     )
     
 }

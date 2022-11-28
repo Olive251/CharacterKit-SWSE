@@ -51,8 +51,6 @@
     padding-inline: 1rem;
     border-radius: 3px;
     border-spacing: .25rem;
-    /* border: 1px solid; */
-    /* border-collapse: collapse; */
 }
 .section table th {
     text-align: center;
@@ -196,4 +194,13 @@
 .skillCardBubble {
     background-color: rgb(215, 224, 230);
     border: outset 1px;
+}
+.skillCardBubbleFilled {
+    background-color: rgb(53, 73, 87);
+    border: outset 1px;
+    border-color: rgb(34, 56, 71);
+}
+.skillBonusCell {
+    font-weight: bold;
+    background-color:rgb(203, 228, 247);
 }

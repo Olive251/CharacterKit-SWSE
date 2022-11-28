@@ -1,10 +1,6 @@
-const {SwseDB} = require('../../lib/swseDB')
-import CharacterHelper from '../../lib/helpers/CharacterHelper'
-import mongoose from 'mongoose';
-
+const SwseDB = require('../../lib/swseDB');
 
 let db = new SwseDB();
-let characterHelper = new CharacterHelper();
 const DBC = process.env.DB_CONN
 
 
