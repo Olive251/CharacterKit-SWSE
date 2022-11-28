@@ -3,6 +3,8 @@
 //      -blocker: feat data needs to be added
 //  -Get misc bonus from equipment bonuses
 //      -blocker: equipment data needs to be working
+//  -Set all Knowledge skills to output
+
 
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
