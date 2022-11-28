@@ -8,7 +8,7 @@ import SkillsCard from './SkillsCard';
 
 const Sheet = ({character}) => {
 
-    if (character != undefined)
+    if (character)
     {
         return (
             <div className={styles.sheet}>

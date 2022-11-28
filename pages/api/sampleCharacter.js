@@ -16,8 +16,7 @@ export default async function handler(req, res) {
     });
 
     try {
-        
-        await db.getCharacterById('637e94e7f01dd700dad586bc')
+        await db.getCharacterById(process.env.SAMPLE_CHARACTER_ID)
         .then((data) => {
           res.status(200).json(data);
       })
