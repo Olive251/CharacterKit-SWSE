@@ -7,7 +7,7 @@ import {sampleCharacter} from '../lib/store'
 
 
 
-const CharacterSheet = () => {
+const CharacterSheet =  () => {
 
     const [character] = useAtom(sampleCharacter);
 
@@ -19,7 +19,7 @@ const CharacterSheet = () => {
                     <link rel="icon" href="/favicon.ico" />
             </Head>
             <JotaiProvider>
-                <Suspense loading="Loading...">
+                <Suspense fallback={"Loading..."}>
                     <Sheet character={character}/>
                 </Suspense>
             </JotaiProvider> 
