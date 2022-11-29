@@ -5,12 +5,11 @@
 //      -blocker: equipment data needs to be working
 
 import styles from '../../styles/CharacterSheet.module.css';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, Suspense} from 'react';
 import {atom, useAtom, Provider} from "jotai";
 import { getModifier } from '../../lib/helpers/getModifier';
 
 const SkillBubble = ({fill}) => {
-    console.log(fill)
     const [style, setStyle] = useState()
 
     useEffect(() => {
@@ -19,45 +18,42 @@ const SkillBubble = ({fill}) => {
     }, [])
 
     return (
-        <td className={`${style}`}>       </td>
+        <td className={`${style}`}></td>
     )
 }
 
-
 const SkillsRow = ({character, skill, index}) => {
-
-    const [abilityMod, setAbilityMod] = useState();
+    const [abilityMod, setAbilityMod] = useState(0);
     const [halfLvl] = useState(Math.floor(character.heroClass[0].level/2))
-    const [skillBonus, setSkillBonus] = useState();
+    const [skillBonus, setSkillBonus] = useState(0);
 
-    useEffect( () => {
+    useEffect(() => {
         var bonus = 0;
         if (skill.trained) bonus += 5;
         if (skill.skillFocus) bonus += 5;
         bonus += halfLvl;
 
         const abilities = Object.entries(character.abilities);
-        abilities.forEach(([key, value]) => {
+        abilities.forEach(([key, value]) => { 
             if (value.abilityID == skill.skillAbility){
                 setAbilityMod( getModifier(value.score));
             }
         })
-
         bonus += abilityMod;
 
         setSkillBonus(bonus);
     }, [])
 
     return(
-    <tr key={index+1}>
-        <td className={styles.boldCell}>{skill.skillName}</td>
-        <td className={styles.skillBonusCell}>{skillBonus}</td>
-        <td>{halfLvl}</td>
-        <td>{abilityMod}</td>
-        <SkillBubble fill={skill.trained}/>
-        <SkillBubble fill={skill.skillFocus}/>
-        <td></td>
-    </tr>
+        <tr key={index+1}>
+            <td className={styles.boldCell}>{skill.skillName}</td>
+            <td className={styles.skillBonusCell}>{skillBonus}</td>
+            <td>{halfLvl}</td>
+            <td>{abilityMod}</td>
+            <SkillBubble fill={skill.trained}/>
+            <SkillBubble fill={skill.skillFocus}/>
+            <td></td>
+        </tr>
     )
 }
 
