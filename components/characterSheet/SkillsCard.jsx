@@ -22,26 +22,27 @@ const SkillBubble = ({fill}) => {
     )
 }
 
-const SkillsRow = ({character, skill, index}) => {
+const SkillsRow = ({lvlBonus, abilities, skill, index}) => {
     const [abilityMod, setAbilityMod] = useState(0);
-    const [halfLvl] = useState(Math.floor(character.heroClass[0].level/2))
+    const [halfLvl] = useState(lvlBonus);
     const [skillBonus, setSkillBonus] = useState(0);
+    const [_abilities] = useState(abilities);
 
-    useEffect(() => {
-        var bonus = 0;
-        if (skill.trained) bonus += 5;
-        if (skill.skillFocus) bonus += 5;
-        bonus += halfLvl;
-
-        const abilities = Object.entries(character.abilities);
-        abilities.forEach(([key, value]) => { 
+    useEffect( () => {
+        _abilities.forEach(([key, value]) => { 
             if (value.abilityID == skill.skillAbility){
                 setAbilityMod( getModifier(value.score));
             }
         })
-        bonus += abilityMod;
+
+        var bonus = 0;
+        if (skill.trained) bonus += 5;
+        if (skill.skillFocus) bonus += 5;
+        bonus += halfLvl;
+        bonus += abilityMod; 
 
         setSkillBonus(bonus);
+        
     }, [])
 
     return(
@@ -64,7 +65,6 @@ const SkillsBody = ({character}) => {
     Object.keys(skills).forEach((key, index) => {
         skillArr.push(skills[key]);
     })
-    
     var spliceEntry;
     skillArr.map((skill, index) => { 
 
@@ -77,17 +77,23 @@ const SkillsBody = ({character}) => {
             })
         }
     });
-
     skillArr.splice(spliceEntry,1);
 
+    const abilitiesArr = Object.entries(character.abilities);
+    const [_abilities] = useState([...new Set(abilitiesArr)]);
+
     const [_skill] = useState([...new Set(skillArr)]);
+    const [_lvlBonus] = useState(Math.floor(character.heroClass[0].level/2));
+
+
+
     
     return (
         <>
         <tbody>
             {_skill.map((skill, index) => {
                 if (skill.skillName)
-                    return(<SkillsRow character={character} skill={skill} index={index}/>)
+                    return(<SkillsRow lvlBonus={_lvlBonus} abilities={_abilities} skill={skill} index={index}/>)
             })}
         </tbody>
         </>
