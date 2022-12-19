@@ -1,18 +1,14 @@
-//TODOs
-//  -Change SkillsRow component to pull training and focus from feats instead of stored skill data
-//      -blocker: feat data needs to be added
-//  -Get misc bonus from equipment bonuses
-//      -blocker: equipment data needs to be working
-//  -Set all Knowledge skills to output
-
+//PROBLEMS
+//When skills row loads the abilitymod is not being added to the total skill bonus
+//Move a considerable portion of the logic from the component into store.js
 
 import styles from '../../styles/CharacterSheet.module.css';
 import {useState, useEffect} from 'react';
 import {atom, useAtom, Provider} from "jotai";
 import { getModifier } from '../../lib/helpers/getModifier';
+import {sampleCharacter} from '../../lib/store'
 
 const SkillBubble = ({fill}) => {
-    console.log(fill)
     const [style, setStyle] = useState()
 
     useEffect(() => {
@@ -27,18 +23,20 @@ const SkillBubble = ({fill}) => {
 
 
 const SkillsRow = ({character, skill, index}) => {
+    
+    const _character = useAtom(sampleCharacter);
 
-    const [abilityMod, setAbilityMod] = useState();
+    const [abilityMod, setAbilityMod] = useState(0);
     const [halfLvl] = useState(Math.floor(character.heroClass[0].level/2))
-    const [skillBonus, setSkillBonus] = useState();
+    const [skillBonus, setSkillBonus] = useState(0);
 
-    useEffect( () => {
-        var bonus = 0;
+    useEffect(() => {
+        let bonus = 0;
         if (skill.trained) bonus += 5;
         if (skill.skillFocus) bonus += 5;
         bonus += halfLvl;
 
-        const abilities = Object.entries(character.abilities);
+        const abilities = Object.entries(_character[0].abilities);
         abilities.forEach(([key, value]) => {
             if (value.abilityID == skill.skillAbility){
                 setAbilityMod( getModifier(value.score));

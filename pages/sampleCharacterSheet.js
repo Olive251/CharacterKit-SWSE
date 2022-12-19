@@ -19,7 +19,7 @@ const CharacterSheet = () => {
                     <link rel="icon" href="/favicon.ico" />
             </Head>
             <JotaiProvider>
-                <Suspense loading="Loading...">
+                <Suspense loading="Waiting on character info from database...">
                     <Sheet character={character}/>
                 </Suspense>
             </JotaiProvider> 
